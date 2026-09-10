@@ -10,7 +10,7 @@ export function loadKakaoMaps() {
   }
   if (loadingPromise) return loadingPromise
 
-  const appKey = import.meta.env.VITE_KAKAO_JS_KEY
+  const appKey = import.meta.env.VITE_KAKAO_JS_KEY || '9c8f5fbad231c8e09fc24e451dff1f5e'
 
   loadingPromise = new Promise((resolve, reject) => {
     if (!appKey || appKey.includes('여기에')) {
