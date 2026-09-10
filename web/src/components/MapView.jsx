@@ -177,8 +177,9 @@ export default function MapView({
       }
 
       selectedCourse.steps.forEach((step) => {
-        if (step.place.coord) {
-          const stepLatLng = new kakao.maps.LatLng(step.place.coord.lat, step.place.coord.lng)
+        const c = step.place?.coord
+        if (c && c.lat && c.lng) {
+          const stepLatLng = new kakao.maps.LatLng(c.lat, c.lng)
           coursePath.push(stepLatLng)
         }
       })

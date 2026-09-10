@@ -144,7 +144,7 @@ export default function App() {
   }, [kakao])
 
   const placesWithCoord = useMemo(
-    () => placesData.places.map((p) => ({ ...p, coord: coords[p.id] || null })),
+    () => placesData.places.map((p) => ({ ...p, coord: p.coord || coords[p.id] || null })),
     [coords]
   )
 
