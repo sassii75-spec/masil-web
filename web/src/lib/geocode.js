@@ -31,6 +31,10 @@ export function geocodeAddress(kakao, address) {
 export async function geocodePlaces(kakao, places, { delayMs = 60 } = {}) {
   const results = {}
   for (const place of places) {
+    if (place.coord) {
+      results[place.id] = place.coord
+      continue
+    }
     if (!place.address) continue
     // eslint-disable-next-line no-await-in-loop
     const coord = await geocodeAddress(kakao, place.address)
