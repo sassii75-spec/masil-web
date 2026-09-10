@@ -308,6 +308,17 @@ export default function App() {
         />
       ) : (
         <div className="layout">
+          <MapView
+            kakao={kakao}
+            kakaoError={kakaoError}
+            places={filteredPlaces}
+            selectedId={selectedId}
+            onSelectPlace={setSelectedId}
+            onOpenDetail={setDetailPlace}
+            selectedCourse={activeCourse}
+            userLocation={userLocation}
+          />
+
           <div className="side-panel">
             <div className="tabs">
               <button type="button" className="tab-btn" data-active={tab === 'list'} onClick={() => setTab('list')}>
@@ -335,17 +346,6 @@ export default function App() {
               )}
             </div>
           </div>
-
-          <MapView
-            kakao={kakao}
-            kakaoError={kakaoError}
-            places={filteredPlaces}
-            selectedId={selectedId}
-            onSelectPlace={setSelectedId}
-            onOpenDetail={setDetailPlace}
-            selectedCourse={activeCourse}
-            userLocation={userLocation}
-          />
         </div>
       )}
 

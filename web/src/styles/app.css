@@ -543,7 +543,7 @@ h1, h2, h3, h4 {
   width: 380px;
   min-width: 380px;
   background: #FFFFFF;
-  border-right: 1.5px solid var(--line);
+  border-left: 1.5px solid var(--line);
   display: flex;
   flex-direction: column;
   height: 100%;
