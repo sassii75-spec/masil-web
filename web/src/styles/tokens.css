@@ -1,0 +1,54 @@
+/* '마실 (Masil)' 은은하게 톤다운된 웜 모카 & 크림 샌드 디자인 토큰 */
+:root {
+  color-scheme: light;
+  --bg: #F8F6F2;
+  --surface: #FFFFFF;
+  --surface-soft: #F0EDE6;
+  --ink: #292524;
+  --ink-soft: #57534E;
+  --muted: #78716C;
+  --line: #E5E0D8;
+
+  /* 톤다운된 고급 모카/에스프레소 브라운 브랜드 컬러 */
+  --primary: #594236;
+  --primary-strong: #4A3B32;
+  --primary-ink: #FFFFFF;
+  --primary-soft: #F2ECE7;
+
+  /* 보조 포인트 톤다운 서식 앰버 */
+  --accent: #8C6A52;
+  --accent-strong: #6B4E3B;
+  --accent-soft: #F7F3EE;
+
+  /* 카테고리 칩 공통 톤다운 샌드 (알록달록한 원색 제거) */
+  --cat-bg: #F0EDE6;
+  --cat-ink: #292524;
+  --cat-active-bg: #594236;
+  --cat-active-ink: #FFFFFF;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --shadow-sm: 0 2px 6px rgba(41, 37, 36, 0.04);
+  --shadow-md: 0 8px 20px -4px rgba(89, 66, 54, 0.10);
+  --shadow-cta: 0 6px 16px -4px rgba(89, 66, 54, 0.3);
+
+  --font-display: 'Gowun Dodum', 'IBM Plex Sans KR', sans-serif;
+  --font-body: 'IBM Plex Sans KR', 'Noto Sans KR', sans-serif;
+
+  /* 폰트 크기 토큰 */
+  --base-font-size: 16px;
+  --h1-font-size: 24px;
+  --h2-font-size: 20px;
+  --h3-font-size: 18px;
+  --btn-font-size: 16px;
+}
+
+/* 어르신 큰 글씨 모드 */
+body.font-large {
+  --base-font-size: 18px;
+  --h1-font-size: 27px;
+  --h2-font-size: 23px;
+  --h3-font-size: 20px;
+  --btn-font-size: 18px;
+}

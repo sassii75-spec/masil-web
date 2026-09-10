@@ -1,0 +1,423 @@
+{
+  "generated_at": "2026-09-09",
+  "schema_version": "1.0-masil-senior",
+  "places": [
+    {
+      "id": "ms-001",
+      "name": "율동공원 호수 산책로",
+      "category": "도보마실",
+      "subcategory": "호수 산책로",
+      "address": "경기도 성남시 분당구 문정로 145 (율동)",
+      "region": "분당구 율동",
+      "hours": "24시간 연중무휴",
+      "price": "무료입장 (주차 3시간 무료)",
+      "duration_min": 60,
+      "description": "완만한 평지 데크길로 조성되어 어르신 지팡이나 휠체어 보행이 편안한 호수 산책로. 중간중간 벤치와 쉼터 다수 위치.",
+      "senior_care_tags": [
+        "평지/슬로프",
+        "넓은 주차",
+        "쉼터 의자 다수",
+        "화장실 완비"
+      ],
+      "oasis_pass_benefit": "호수 주변 찻집 10% 할인 쿠폰",
+      "highlights": [
+        "전 구간 계단 없는 평지 데크길",
+        "호수를 바라보는 그늘 벤치 20여 곳",
+        "주차장에서 산책로 입구까지 1분"
+      ],
+      "senior_tips": "오전 10시~11시 사이 방문 시 햇살이 온화하며, A주차장이 산책로 입구와 가장 가깝습니다.",
+      "parking_info": "A·B 지상 주차장 3시간 무료, 휠체어 하차 구역 완비",
+      "data_quality": "complete",
+      "image_url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": "ms-002",
+      "name": "분당 중앙공원 수내정 숲길",
+      "category": "도보마실",
+      "subcategory": "전통 정원 & 공원",
+      "address": "경기도 성남시 분당구 성남대로 543 (수내동)",
+      "region": "분당구 수내동",
+      "hours": "24시간 연중무휴",
+      "price": "무료입장",
+      "duration_min": 45,
+      "description": "조선 시대 한옥 연못 정자인 수내정과 흙내음 고즈넉한 평지 잔디밭. 어르신들 담소 나누기 정겨운 장소.",
+      "senior_care_tags": [
+        "평지/슬로프",
+        "쉼터 의자 다수",
+        "화장실 완비"
+      ],
+      "oasis_pass_benefit": "전통 다과 세트 1,000원 할인",
+      "highlights": [
+        "수내정 앞 연못에 비단비단 비단의 정취",
+        "울창한 소나무 그늘 쉼터",
+        "수내역 도보 8분 거리"
+      ],
+      "senior_tips": "수내정 건너편 그늘막 의자가 가장 바람이 잘 통하고 쉬기 좋습니다.",
+      "parking_info": "공영주차장 이용 가능 (지하/지상)",
+      "data_quality": "complete",
+      "image_url": "https://images.unsplash.com/photo-1519331379826-f10be5486c6f?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": "ms-003",
+      "name": "구미동 동막천 숲길 산책로",
+      "category": "도보마실",
+      "subcategory": "하천 숲길",
+      "address": "경기도 성남시 분당구 구미동 128-1",
+      "region": "분당구 구미동",
+      "hours": "24시간 연중무휴",
+      "price": "무료입장",
+      "duration_min": 50,
+      "description": "동막천 흐르는 소리를 들으며 걷는 울창한 메타세쿼이아 숲길. 먼지 없이 폭신한 흙길과 평탄한 보도블록 조율.",
+      "senior_care_tags": [
+        "평지/슬로프",
+        "쉼터 의자 다수",
+        "공기 좋은 힐링"
+      ],
+      "oasis_pass_benefit": "인근 한방 다원 대추차 500원 할인",
+      "highlights": [
+        "여름에도 시원한 메타세쿼이아 그늘",
+        "물소리와 새소리가 들리는 자연 산책로",
+        "경사 1도 미만 평탄길"
+      ],
+      "senior_tips": "동막천 교량 밑 의자는 더운 여름날에도 바람이 시원합니다.",
+      "parking_info": "구미동 탄천변 공영주차장 이용",
+      "data_quality": "complete",
+      "image_url": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": "ms-004",
+      "name": "남한산성 수어장대 드라이브 코스",
+      "category": "차량마실",
+      "subcategory": "산책 & 유적 드라이브",
+      "address": "경기도 광주시 남한산성면 남한산성로 780",
+      "region": "남한산성",
+      "hours": "09:00 ~ 18:00",
+      "price": "무료입장 (주차비 3,000원)",
+      "duration_min": 90,
+      "description": "차량으로 산 능선까지 편안하게 올라가 성남과 서울 전경을 내려다보는 울창한 숲 드라이브 코스.",
+      "senior_care_tags": [
+        "넓은 주차",
+        "경치 좋은 힐링",
+        "화장실 완비"
+      ],
+      "oasis_pass_benefit": "산채정식 식당 단호박 식혜 서비스",
+      "highlights": [
+        "차 안에서 즐기는 사계절 남한산성 풍경",
+        "남한산성 로터리 주변 넓은 지상 주차장",
+        "백숙 및 산채정식 거리 인접"
+      ],
+      "senior_tips": "로터리 중앙 주차장에 주차 후 10m 앞 로터리 찻집에서 차 한 잔 하시는 코스를 추천합니다.",
+      "parking_info": "남한산성 중앙 로터리 주차장 (경차/저공해 50% 할인)",
+      "data_quality": "complete",
+      "image_url": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": "ms-005",
+      "name": "신구대학교 식물원 숲 산책길",
+      "category": "차량마실",
+      "subcategory": "식물원 & 수목원",
+      "address": "경기도 성남시 수정구 적푸리로 9 (상적동)",
+      "region": "성남시 수정구",
+      "hours": "09:00 ~ 18:00 (월요일 휴무)",
+      "price": "경로할인 5,000원 (65세 이상)",
+      "duration_min": 90,
+      "description": "온실 화원과 계절 꽃길이 어우러진 평화로운 식물원. 휠체어 및 전동차 이동이 용이하도록 전 구간 경사로 완비.",
+      "senior_care_tags": [
+        "평지/슬로프",
+        "넓은 주차",
+        "쉼터 의자 다수",
+        "휠체어 대여"
+      ],
+      "oasis_pass_benefit": "식물원 카페 음료 1,000원 할인",
+      "highlights": [
+        "사계절 화초가 만발하는 대형 온실",
+        "무료 휠체어 대여 서비스 제공",
+        "꽃향기 가득한 실내/실외 정원"
+      ],
+      "senior_tips": "매표소에서 무료로 휠체어를 대여할 수 있으니 다리가 불편하신 어르신도 편하게 둘러보실 수 있습니다.",
+      "parking_info": "전용 지상 대형 주차장 완비 (주차 무료)",
+      "data_quality": "complete",
+      "image_url": "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": "ms-006",
+      "name": "판교 운중호수 수변공원",
+      "category": "차량마실",
+      "subcategory": "호수 공원",
+      "address": "경기도 성남시 분당구 운중동 367-1",
+      "region": "분당구 운중동",
+      "hours": "24시간 연중무휴",
+      "price": "무료입장",
+      "duration_min": 60,
+      "description": "청계산 능선에 둘러싸인 잔잔한 운중호수 수변 산책로. 붐비지 않고 차분해 어르신들의 여유로운 드라이브 코스.",
+      "senior_care_tags": [
+        "평지/슬로프",
+        "넓은 주차",
+        "쉼터 의자 다수"
+      ],
+      "oasis_pass_benefit": "호수 인근 전통 찻집 과일 컵 디저트 무료",
+      "highlights": [
+        "물에 비치는 청계산 단풍과 산새 소리",
+        "탁 트인 2층 호수 전망 쉼터 데크",
+        "운중동 먹거리 촌 인접"
+      ],
+      "senior_tips": "주차 후 수변 데크 산책 30분, 바로 옆 차방에서 한방차 한 잔을 곁들이시면 좋습니다.",
+      "parking_info": "운중호수 공영 주차장",
+      "data_quality": "complete",
+      "image_url": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": "wf-001",
+      "name": "분당 정자노인종합복지관",
+      "category": "복지관·데이케어",
+      "subcategory": "노인종합복지관",
+      "address": "경기도 성남시 분당구 불정로 50 (정자동)",
+      "region": "분당구 정자동",
+      "hours": "09:00 ~ 18:00 (토/일 휴무)",
+      "price": "복지관 이용 무료 / 경로식당 2,500원",
+      "duration_min": 120,
+      "description": "분당구 대표 시립 노인종합복지관. 건강증진실, 바둑·장기실, 스마트폰 강좌, 시니어 체조반 및 자율 경로식당 운영.",
+      "senior_care_tags": [
+        "평지/슬로프",
+        "셔틀버스 운행",
+        "경로식당/영양식",
+        "건강/교양 강좌",
+        "엘리베이터 완비"
+      ],
+      "oasis_pass_benefit": "첫 방문 시 건강상담 및 기초 혈당/혈압 무료 측정",
+      "highlights": [
+        "분당구 전역 무료 셔틀버스 4개 노선 일 8회 운행",
+        "물리치료실 & 시니어 파크 체육시설",
+        "영양사 조리 균형 잡힌 점심 식사"
+      ],
+      "senior_tips": "오전 10시 스마트폰 기초 교실과 오후 2시 시니어 게이트볼 교실이 어르신들에게 가장 인기 있습니다.",
+      "parking_info": "복지관 전용 지상/지하 주차장 (복지카드 소지자 우선)",
+      "data_quality": "complete",
+      "image_url": "https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": "wf-002",
+      "name": "판교노인종합복지관 & 시니어 문화센터",
+      "category": "복지관·데이케어",
+      "subcategory": "노인종합복지관 & 문화센터",
+      "address": "경기도 성남시 분당구 판교역로 99 (백현동)",
+      "region": "분당구 백현동",
+      "hours": "09:00 ~ 18:00 (토/일 휴무)",
+      "price": "강좌 수강료 1~2만원대 / 자율 휴게실 무료",
+      "duration_min": 90,
+      "description": "최신 편의시설을 갖춘 쾌적한 판교 지역 어르신 문화센터. 서예, 서양화, 서양악기, 노래교실, 체조 등 다양한 교양 강좌 수강.",
+      "senior_care_tags": [
+        "평지/슬로프",
+        "넓은 주차",
+        "셔틀버스 운행",
+        "건강/교양 강좌",
+        "의자/휴게실 완비"
+      ],
+      "oasis_pass_benefit": "문화 교실 일일 청강 체험 무료권",
+      "highlights": [
+        "탁 트인 자율 북카페와 한방 차 쉼터",
+        "어르신 전용 최신 디지털 키오스크 교육장",
+        "판교역 도보 10분, 셔틀 상시 운행"
+      ],
+      "senior_tips": "1층 자율 쉼터 북카페에는 부드러운 쇼파와 대형 글씨 책이 마련되어 있어 차 한 잔 나누기 좋습니다.",
+      "parking_info": "지하 2층 규모 넉넉한 전용 주차장 (초보 및 대형 차량 용이)",
+      "data_quality": "complete",
+      "image_url": "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": "wf-003",
+      "name": "성남시 분당데이케어센터 (노인주간보호)",
+      "category": "복지관·데이케어",
+      "subcategory": "데이케어 & 주간보호센터",
+      "address": "경기도 성남시 분당구 야탑로 115 (야탑동)",
+      "region": "분당구 야탑동",
+      "hours": "08:00 ~ 20:00 (월~토 운영)",
+      "price": "장기요양등급 적용 (본인부담금 15%~무료)",
+      "duration_min": 180,
+      "description": "낮 동안 어르신을 안전하게 모시고 건강 관리, 치매 예방 음악·미술 치료, 영양 식사 및 픽업 송영 서비스를 제공하는 시립 전문 데이케어센터.",
+      "senior_care_tags": [
+        "송영(픽업) 서비스",
+        "간호사/요양보호사 상주",
+        "영양 식사/간식",
+        "치매예방 프로그램"
+      ],
+      "oasis_pass_benefit": "보호자 무료 방문 돌봄 상담 & 입소 안내책자 제공",
+      "highlights": [
+        "전담 간호사의 매일 아침 혈압·당뇨 체크",
+        "상·하차 도우미 동승 댁 앞 픽업·송영 차량",
+        "인지 활성화 원예 및 미니 운동회"
+      ],
+      "senior_tips": "장기요양등급(1~5등급) 신청 및 등급 판정 절차를 센터에서 친절하게 무료로 상담해 드립니다.",
+      "parking_info": "센터 전용 송영 차량 주차 구역 및 방문객 전용 주차면 10대",
+      "data_quality": "complete",
+      "image_url": "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": "wf-004",
+      "name": "분당구 보건소 치매안심센터",
+      "category": "복지관·데이케어",
+      "subcategory": "치매안심센터 & 건강관리",
+      "address": "경기도 성남시 분당구 야탑로 64 (야탑동)",
+      "region": "분당구 야탑동",
+      "hours": "09:00 ~ 18:00 (월~금)",
+      "price": "무료 검진 및 무상 프로그램",
+      "duration_min": 60,
+      "description": "60세 이상 어르신을 위한 선제적 조기 치매 검사, 뇌 운동 쉼터 교실, 조기 조율 감정 상담 및 조제비 지원 센터.",
+      "senior_care_tags": [
+        "무료 검진",
+        "전문 간호사/임상심리사",
+        "평지/슬로프",
+        "화장실 완비"
+      ],
+      "oasis_pass_benefit": "치매예방 뇌운동 퍼즐 키트 무료 증정",
+      "highlights": [
+        "15분 소요 간이 치매 조기검사 100% 무료",
+        "치매 예방 쉼터 뇌활성 운동 교실",
+        "치매 어르신 감지기 및 조제비 수당 신청"
+      ],
+      "senior_tips": "신분증만 지참하시면 예약 없이 바로 1층 검진실에서 15분 만에 뇌 건강 상태를 확인하실 수 있습니다.",
+      "parking_info": "보건소 지상 주차장 이용",
+      "data_quality": "complete",
+      "image_url": "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": "sd-001",
+      "name": "정자동 흙향기 전통 다원",
+      "category": "1시간마실",
+      "subcategory": "전통 찻집 & 다원",
+      "address": "경기도 성남시 분당구 불정로 77 (정자동)",
+      "region": "분당구 정자동",
+      "hours": "10:00 ~ 21:00 (연중무휴)",
+      "price": "쌍화차 8,000원 / 대추차 7,500원",
+      "duration_min": 60,
+      "description": "직접 달인 진한 수제 십전대보탕과 대추차, 가래떡 구이가 함께 나오는 고즈넉한 흙벽 전통 찻집. 1시간 편히 쉬어가기 으뜸.",
+      "senior_care_tags": [
+        "온돌 방방이",
+        "편안한 의자",
+        "어르신 맞춤 차",
+        "무료 주차"
+      ],
+      "oasis_pass_benefit": "차 주문 시 숯불 가래떡 구이 무료 서비스",
+      "highlights": [
+        "100% 국산 약재로 12시간 고아낸 수제 대추차",
+        "신발 벗지 않는 편안한 높은 의자석 보유",
+        "잔잔한 가야금 클래악 음악"
+      ],
+      "senior_tips": "창가 좌식 온돌방은 다리가 아프지 않도록 입식 등받이 의자가 구비되어 있습니다.",
+      "parking_info": "매장 앞 전용 주차장 6대 주차 가능",
+      "data_quality": "complete",
+      "image_url": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": "sd-002",
+      "name": "백현동 곤드레 밥상 (자연 한정식)",
+      "category": "보양·전통찻집",
+      "subcategory": "속 편한 한식당",
+      "address": "경기도 성남시 분당구 판교백현로 59 (백현동)",
+      "region": "분당구 백현동",
+      "hours": "11:00 ~ 21:00 (Break 15:00~17:00)",
+      "price": "곤드레 정식 15,000원 / 산채 보리밥 13,000원",
+      "duration_min": 60,
+      "description": "강원도 정선 곤드레와 12가지 무농약 산채 나물로 차려낸 깔끔하고 부드러운 속 편한 웰빙 밥상.",
+      "senior_care_tags": [
+        "부드러운 소화",
+        "입식 테이블",
+        "넓은 주차",
+        "남녀 화장실"
+      ],
+      "oasis_pass_benefit": "어르신 방문 시 구수한 숭늉 & 잡채 추가 서비스",
+      "highlights": [
+        "조미료를 쓰지 않아 어르신 속이 아주 편안한 나물류",
+        "전 좌석 입식 의자로 무릎 부담 제로",
+        "식후 무료 한방 원두차 셀프바"
+      ],
+      "senior_tips": "주말 점심은 예약 시 1층 넓은 테이블로 우선 배치해 드립니다.",
+      "parking_info": "발렛 주차 지원 및 자체 지상 주차장 20대",
+      "data_quality": "complete",
+      "image_url": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": "sd-003",
+      "name": "남한산성 계곡 장수 백숙",
+      "category": "보양·전통찻집",
+      "subcategory": "보양식 & 숲속 식당",
+      "address": "경기도 광주시 남한산성면 남한산성로 712",
+      "region": "남한산성",
+      "hours": "10:30 ~ 21:00",
+      "price": "토종닭 누룽지 백숙 65,000원 (3~4인분)",
+      "duration_min": 90,
+      "description": "푹 고아낸 엄나무 토종닭과 고소한 찹쌀 누룽지가 어우러진 여름·겨울 어르신 원기회복 보양식 명가.",
+      "senior_care_tags": [
+        "원기회복 보양식",
+        "계곡 숲 경치",
+        "넓은 주차",
+        "개별 방"
+      ],
+      "oasis_pass_benefit": "도토리묵 무침 (15,000원 상당) 무료 증정",
+      "highlights": [
+        "살이 뼈에서 부드럽게 발라지는 살살 녹는 부드러움",
+        "가족 단위 모임에 좋은 독립 룸 완비",
+        "숲속 계곡 바람 선선한 힐링 장소"
+      ],
+      "senior_tips": "방문 1시간 전 전화 예약 시 기다림 없이 바로 끓인 닭백숙을 드실 수 있습니다.",
+      "parking_info": "매장 앞 대형 주차장 (버스 주차 가능)",
+      "data_quality": "complete",
+      "image_url": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": "sd-004",
+      "name": "성남 구미동 옛날 삼계탕 & 한방차",
+      "category": "보양·전통찻집",
+      "subcategory": "보양식 전문점",
+      "address": "경기도 성남시 분당구 미금일로 86 (구미동)",
+      "region": "분당구 구미동",
+      "hours": "11:00 ~ 21:30",
+      "price": "한방 삼계탕 17,000원 / 들깨 삼계탕 18,000원",
+      "duration_min": 60,
+      "description": "푹 고은 사골 육수에 걸쭉한 들깨와 수삼, 영지버섯을 넣어 끓인 어르신 부모님 모시기 으뜸인 건강 보양 삼계탕.",
+      "senior_care_tags": [
+        "원기회복 보양식",
+        "입식 좌석",
+        "무료 주차"
+      ],
+      "oasis_pass_benefit": "식후 매실차 & 미니 약과 서비스",
+      "highlights": [
+        "잇몸으로도 씹힐 정도로 부드러운 수삼 닭고기",
+        "미금역 도보 5분 쾌적한 보도",
+        "전원 입식 좌석"
+      ],
+      "senior_tips": "소화가 잘되는 들깨 삼계탕이 특히 연세 있으신 어르신들께 반응이 좋습니다.",
+      "parking_info": "매장 건물 지상 주차 가능",
+      "data_quality": "complete",
+      "image_url": "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": "ms-007",
+      "name": "분당 중앙도서관 시니어 정원 쉼터",
+      "category": "1시간마실",
+      "subcategory": "도서관 & 쉼터",
+      "address": "경기도 성남시 분당구 중앙공원로 51 (수내동)",
+      "region": "분당구 수내동",
+      "hours": "09:00 ~ 18:00 (월요일 휴관)",
+      "price": "무료 이용",
+      "duration_min": 60,
+      "description": "대형 글씨 신문과 어르신 교양 서적이 구비된 쾌적한 열람실과 잔디 정원이 연결된 1시간 실내외 쉼터.",
+      "senior_care_tags": [
+        "큰 글씨 책",
+        "평지/슬로프",
+        "냉난방 완비",
+        "화장실 완비"
+      ],
+      "oasis_pass_benefit": "도서관 1층 북카페 아메리카노/유자차 500원 할인",
+      "highlights": [
+        "돋보기 및 확대경 구비 어르신 전용 책상",
+        "공원 숲이 내려다보이는 정원 벤치",
+        "여름 시원하고 겨울 따뜻한 실내 쉼터"
+      ],
+      "senior_tips": "1층 어르신 전용 열람 코너에는 돋보기와 큰 글씨 서적이 완비되어 있습니다.",
+      "parking_info": "도서관 지상 주차장 이용 (1시간 무료)",
+      "data_quality": "complete",
+      "image_url": "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=800&q=80"
+    }
+  ]
+}
