@@ -232,9 +232,57 @@ export default function MapView({
 
   if (kakaoError) {
     return (
-      <div className="map-view-box empty-state" style={{ padding: 40, textAlign: 'center' }}>
-        카카오 지도를 불러오지 못했습니다. <br />
-        <code>.env</code> 파일의 <code>VITE_KAKAO_JS_KEY</code> 설정을 확인해주세요.
+      <div className="map-container">
+        <div
+          className="map-view-box empty-state"
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: 40,
+            textAlign: 'center',
+            background: '#F5F2EC',
+          }}
+        >
+          <div style={{ fontSize: 44, marginBottom: 16 }}>⚠️</div>
+          <div style={{ fontSize: 18, fontWeight: 700, marginBottom: 8, color: '#292524' }}>
+            카카오 지도를 불러올 수 없습니다
+          </div>
+          <div style={{ fontSize: 14, color: '#78716C', maxWidth: 420, lineHeight: 1.6, marginBottom: 20 }}>
+            {kakaoError}
+          </div>
+          <button
+            type="button"
+            className="btn-primary"
+            style={{ padding: '10px 22px', fontSize: 15 }}
+            onClick={() => window.location.reload()}
+          >
+            🔄 페이지 새로고침
+          </button>
+        </div>
+      </div>
+    )
+  }
+
+  if (!kakao) {
+    return (
+      <div className="map-container">
+        <div
+          className="map-view-box empty-state"
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            height: '100%',
+            color: '#78716C',
+            background: '#F5F2EC',
+          }}
+        >
+          <div style={{ fontSize: 36, marginBottom: 12 }}>🗺️</div>
+          <div style={{ fontSize: 16, fontWeight: 600 }}>카카오 지도를 연결하는 중입니다...</div>
+        </div>
       </div>
     )
   }

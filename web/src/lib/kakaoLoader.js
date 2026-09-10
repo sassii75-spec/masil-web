@@ -13,7 +13,12 @@ export function loadKakaoMaps() {
   const appKey = import.meta.env.VITE_KAKAO_JS_KEY || '9c8f5fbad231c8e09fc24e451dff1f5e'
 
   loadingPromise = new Promise((resolve, reject) => {
+    const timeoutTimer = setTimeout(() => {
+      reject(new Error('카카오 지도 SDK 응답 시간 초과 (카카오 Developers 도메인 등록 상태를 확인해주세요)'))
+    }, 6000)
+
     const handleLoad = () => {
+      clearTimeout(timeoutTimer)
       if (window.kakao && window.kakao.maps) {
         window.kakao.maps.load(() => resolve(window.kakao))
       } else {
@@ -36,7 +41,10 @@ export function loadKakaoMaps() {
     }
 
     script.onload = handleLoad
-    script.onerror = () => reject(new Error('카카오맵 SDK 스크립트 로드 실패'))
+    script.onerror = () => {
+      clearTimeout(timeoutTimer)
+      reject(new Error('카카오맵 SDK 스크립트 로드 실패. 네트워크나 앱 키 설정을 확인해주세요.'))
+    }
   })
 
   return loadingPromise
