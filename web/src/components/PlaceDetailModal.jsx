@@ -23,12 +23,31 @@ export default function PlaceDetailModal({ place, onClose, onSelectOnMap }) {
         {/* Modal Banner / Image */}
         <div className="modal-header-image" style={{ height: 220, position: 'relative', background: cat.bg }}>
           {place.image_url ? (
-            <img src={place.image_url} alt={place.name} className="place-hero-img" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-          ) : (
-            <div className="place-hero-fallback" style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 60, color: cat.ink }}>
-              {CategoryIcon ? <CategoryIcon className="hero-icon" /> : '🌿'}
-            </div>
-          )}
+            <img
+              src={place.image_url}
+              alt={place.name}
+              className="place-hero-img"
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              onError={(e) => {
+                e.target.style.display = 'none'
+                if (e.target.nextSibling) e.target.nextSibling.style.display = 'flex'
+              }}
+            />
+          ) : null}
+          <div
+            className="place-hero-fallback"
+            style={{
+              width: '100%',
+              height: '100%',
+              display: place.image_url ? 'none' : 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: 60,
+              color: cat.ink,
+            }}
+          >
+            {CategoryIcon ? <CategoryIcon className="hero-icon" /> : '🌿'}
+          </div>
           <div className="modal-header-badge-row" style={{ position: 'absolute', bottom: 14, left: 14, display: 'flex', gap: 8 }}>
             <span className="cat-pill" style={{ background: cat.badgeBg, color: cat.badgeInk, padding: '4px 12px', borderRadius: 999, fontSize: 13, fontWeight: 800 }}>
               {cat.label}

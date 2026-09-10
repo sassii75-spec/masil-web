@@ -26,12 +26,29 @@ export default function PlaceCard({ place, selected, onSelect, onOpenDetail }) {
       {/* Real Place Image Thumbnail */}
       <div className="thumb-wrapper" style={{ height: 140, overflow: 'hidden', borderRadius: 10, marginBottom: 10, background: cat.bg, position: 'relative' }}>
         {place.image_url ? (
-          <img src={place.image_url} alt={place.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-        ) : (
-          <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 40, color: cat.ink }}>
-            {Icon ? <Icon className="icon" /> : '🌿'}
-          </div>
-        )}
+          <img
+            src={place.image_url}
+            alt={place.name}
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            onError={(e) => {
+              e.target.style.display = 'none'
+              if (e.target.nextSibling) e.target.nextSibling.style.display = 'flex'
+            }}
+          />
+        ) : null}
+        <div
+          style={{
+            width: '100%',
+            height: '100%',
+            display: place.image_url ? 'none' : 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: 40,
+            color: cat.ink,
+          }}
+        >
+          {Icon ? <Icon className="icon" /> : '🌿'}
+        </div>
         <span className="cat-pill" style={{ position: 'absolute', top: 8, left: 8, background: cat.badgeBg, color: cat.badgeInk, padding: '2px 8px', borderRadius: 6, fontSize: 12, fontWeight: 700 }}>
           {cat.label}
         </span>

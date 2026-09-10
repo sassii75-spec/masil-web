@@ -17,12 +17,19 @@ function CurationCard({ place, onSelectPlace, onOpenDetail }) {
     >
       <div className="curation-thumb-box">
         {place.image_url ? (
-          <img src={place.image_url} alt={place.name} className="curation-thumb-img" />
-        ) : (
-          <div className="curation-thumb-fallback" style={{ background: cat.bg, color: cat.ink }}>
-            {Icon ? <Icon className="fallback-icon" /> : '🌿'}
-          </div>
-        )}
+          <img
+            src={place.image_url}
+            alt={place.name}
+            className="curation-thumb-img"
+            onError={(e) => {
+              e.target.style.display = 'none'
+              if (e.target.nextSibling) e.target.nextSibling.style.display = 'flex'
+            }}
+          />
+        ) : null}
+        <div className="curation-thumb-fallback" style={{ background: cat.bg, color: cat.ink, display: place.image_url ? 'none' : 'flex' }}>
+          {Icon ? <Icon className="fallback-icon" /> : '🌿'}
+        </div>
         <span className="curation-cat-badge" style={{ background: cat.badgeBg, color: cat.badgeInk }}>
           {cat.label}
         </span>
