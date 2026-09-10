@@ -89,8 +89,9 @@ export function buildCourses(places, opts = {}) {
     .map((p) => ({
       place: p,
       distKm: haversineKm(originCoord, p.coord),
+      isWelfare: p.category === '복지관·데이케어' ? 0 : 1,
     }))
-    .sort((a, b) => a.distKm - b.distKm)
+    .sort((a, b) => a.isWelfare - b.isWelfare || a.distKm - b.distKm)
 
   const sortedPlaces = poolWithDist.map((pd) => pd.place)
 

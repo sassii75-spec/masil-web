@@ -1,6 +1,15 @@
 // 장소 카테고리 정의 — 마실(Masil) 어르신 & 실버 맞춤 5대 테마 (품격 있는 은은한 파스텔 구분 컬러)
 export const CATEGORIES = [
   {
+    key: '복지관·데이케어',
+    label: '복지관 · 문화센터 · 데이케어',
+    bg: '#F4EFEA',
+    ink: '#423832',
+    badgeBg: '#66574F',
+    badgeInk: '#FFFFFF',
+    border: '#DDD6CE',
+  },
+  {
     key: '도보마실',
     label: '걸어서 다녀올 마실',
     bg: '#EAEFE9',
@@ -35,15 +44,6 @@ export const CATEGORIES = [
     badgeBg: '#8A3B3B',
     badgeInk: '#FFFFFF',
     border: '#EBD3D3',
-  },
-  {
-    key: '복지관·데이케어',
-    label: '복지관 · 문화센터 · 데이케어',
-    bg: '#F4EFEA',
-    ink: '#423832',
-    badgeBg: '#66574F',
-    badgeInk: '#FFFFFF',
-    border: '#DDD6CE',
   },
 ]
 

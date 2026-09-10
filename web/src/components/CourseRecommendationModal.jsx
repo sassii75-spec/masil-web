@@ -22,9 +22,9 @@ export default function CourseRecommendationModal({ courses, onConfirmCourse, on
   const currentCourse = courses[selectedIndex] || courses[0]
 
   const optionThemes = [
-    { title: '코스 1: 숲길 산책 & 다원 힐링', badge: '강력추천' },
-    { title: '코스 2: 호수 드라이브 & 한식', badge: '여유형' },
-    { title: '코스 3: 복지관 강좌 & 숏 마실', badge: '알짜배기' },
+    { title: '코스 1: 복지관 강좌 & 숏 마실', badge: '최우선 추천' },
+    { title: '코스 2: 숲길 산책 & 다원 힐링', badge: '여유형' },
+    { title: '코스 3: 호수 드라이브 & 한식', badge: '알짜배기' },
   ]
 
   return (
