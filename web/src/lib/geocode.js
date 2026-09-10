@@ -14,9 +14,11 @@ export function geocodeAddress(kakao, address) {
       resolve(null)
       return
     }
+    // (율동) 등 괄호 주석 제거하여 카카오 Geocoder API 400 에러 방지
+    const cleanAddr = address.replace(/\s*\([^)]*\)/g, '').trim()
     const g = getGeocoder(kakao)
-    g.addressSearch(address, (result, status) => {
-      if (status === kakao.maps.services.Status.OK && result[0]) {
+    g.addressSearch(cleanAddr || address, (result, status) => {
+      if (status === kakao.maps.services.Status.OK && result && result[0]) {
         resolve({ lat: Number(result[0].y), lng: Number(result[0].x) })
       } else {
         resolve(null)
