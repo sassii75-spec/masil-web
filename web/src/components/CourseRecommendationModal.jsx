@@ -22,9 +22,9 @@ export default function CourseRecommendationModal({ courses, onConfirmCourse, on
   const currentCourse = courses[selectedIndex] || courses[0]
 
   const optionThemes = [
-    { title: '🌿 코스 1: 🚶‍♂️ 숲길 산책 & 다원 힐링 코스', badge: '강력추천', desc: '평지 숲길 산책과 국산 한방 차 한 잔' },
-    { title: '🚗 코스 2: 🚗 호수 드라이브 & 건강 한식 코스', badge: '여유형', desc: '율동 호수 드라이브와 속 편한 곤드레 밥상' },
-    { title: '🏥 코스 3: ⏱️ 복지관 강좌 & 1시간 숏 마실', badge: '알짜배기', desc: '어르신 복지관 교양 강좌 후 정원 쉼터' },
+    { title: '코스 1: 숲길 산책 & 다원 힐링', badge: '강력추천' },
+    { title: '코스 2: 호수 드라이브 & 한식', badge: '여유형' },
+    { title: '코스 3: 복지관 강좌 & 숏 마실', badge: '알짜배기' },
   ]
 
   return (
@@ -42,12 +42,12 @@ export default function CourseRecommendationModal({ courses, onConfirmCourse, on
           </div>
           <p className="course-modal-sub">
             원하는 마실 코스를 선택하신 후 <strong>"이 마실 코스로 확정하기"</strong>를 눌러 지도와 타임라인을 확인하세요.<br />
-            <span className="summary-budget-pill">
+            <span className="summary-budget-pill" style={{ display: 'inline-block', marginTop: 8 }}>
               ⏱️ 소요시간: 약 {Math.floor(currentCourse.totalMinutes / 60)}시간 {currentCourse.totalMinutes % 60}분 &nbsp;|&nbsp; 🚶‍♂️ 걸음수: 약 {currentCourse.estimatedStepsCount || '1,800'}보 &nbsp;|&nbsp; 💰 총 예산: {currentCourse.estimatedCostText}
             </span>
           </p>
 
-          {/* Course Options Tabs */}
+          {/* Course Options Tabs (Single 1-Row 3-Grid Layout) */}
           <div className="course-option-tabs">
             {courses.slice(0, 3).map((c, idx) => {
               const theme = optionThemes[idx] || { title: `코스 ${idx + 1}`, badge: '추천' }
@@ -62,21 +62,27 @@ export default function CourseRecommendationModal({ courses, onConfirmCourse, on
                   className={`course-tab-btn ${isSelected ? 'is-selected' : ''}`}
                   onClick={() => setSelectedIndex(idx)}
                   style={{
-                    padding: '12px 18px',
+                    padding: '14px 16px',
                     borderRadius: 14,
                     border: isSelected ? '2px solid #B85B24' : '1.5px solid #E8E2D9',
                     background: isSelected ? '#FDF2E9' : '#FFF',
                     cursor: 'pointer',
                     textAlign: 'left',
+                    whiteSpace: 'nowrap',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
                   }}
                 >
-                  <span className="tab-theme-badge" style={{ background: '#B85B24', color: '#FFF', padding: '2px 8px', borderRadius: 4, fontSize: 12, fontWeight: 700 }}>
-                    {theme.badge}
-                  </span>
-                  <div className="tab-title" style={{ fontWeight: 800, fontSize: 16, marginTop: 4, color: '#8A4015' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 4 }}>
+                    <span className="tab-theme-badge" style={{ background: isSelected ? '#B85B24' : '#78716C', color: '#FFF', padding: '2px 8px', borderRadius: 4, fontSize: 11.5, fontWeight: 700 }}>
+                      {theme.badge}
+                    </span>
+                    <span style={{ fontSize: 13, color: '#57534E', fontWeight: 600 }}>⏱️ {timeStr}</span>
+                  </div>
+                  <div className="tab-title" style={{ fontWeight: 800, fontSize: 15.5, color: isSelected ? '#8A4015' : '#1C1917', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                     {theme.title}
                   </div>
-                  <span className="tab-meta" style={{ fontSize: 13, color: '#44403C' }}>⏱️ {timeStr} · {c.estimatedCostText}</span>
+                  <span className="tab-meta" style={{ fontSize: 12.5, color: '#78716C', display: 'block', marginTop: 2 }}>💰 예산: {c.estimatedCostText}</span>
                 </button>
               )
             })}
