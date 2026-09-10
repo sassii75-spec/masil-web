@@ -59,58 +59,40 @@ export default function MapView({
 
   const activeCoord = userLocation?.coord || DEFAULT_CENTER
 
-  // Kakao Map 객체 초기화 (컨테이너 크기 확정 후 생성)
+  // Kakao Map 객체 초기화 (마운트 시 생성, 언마운트 시 cleanup)
   useEffect(() => {
-    if (!kakao || !mapRef.current || mapInstance.current) return
+    if (!kakao || !mapRef.current) return
 
     let timerId = null
-    let retries = 0
 
-    const initMap = () => {
-      if (!mapRef.current || mapInstance.current) return
+    try {
+      const centerLatLng = new kakao.maps.LatLng(activeCoord.lat, activeCoord.lng)
+      const instance = new kakao.maps.Map(mapRef.current, {
+        center: centerLatLng,
+        level: 5,
+      })
+      mapInstance.current = instance
+      infoWindowRef.current = new kakao.maps.InfoWindow({ removable: true })
 
-      const width = mapRef.current.offsetWidth || mapRef.current.clientWidth
-      const height = mapRef.current.offsetHeight || mapRef.current.clientHeight
-
-      // 컨테이너 레이아웃 미계산(0x0)시 최대 5회(250ms) 재시도 후 진행
-      if ((width === 0 || height === 0) && retries < 5) {
-        retries++
-        timerId = setTimeout(initMap, 50)
-        return
-      }
-
-      try {
-        const centerLatLng = new kakao.maps.LatLng(activeCoord.lat, activeCoord.lng)
-        const instance = new kakao.maps.Map(mapRef.current, {
-          center: centerLatLng,
-          level: 5,
-        })
-        mapInstance.current = instance
-        infoWindowRef.current = new kakao.maps.InfoWindow({ removable: true })
-
-        // 초기 타일 로드 보장용 relayout
-        const triggerRelayout = () => {
-          if (mapInstance.current) {
-            mapInstance.current.relayout()
-            mapInstance.current.setCenter(centerLatLng)
-          }
+      const triggerRelayout = () => {
+        if (mapInstance.current) {
+          mapInstance.current.relayout()
+          mapInstance.current.setCenter(centerLatLng)
         }
-
-        requestAnimationFrame(triggerRelayout)
-        setTimeout(triggerRelayout, 50)
-        setTimeout(triggerRelayout, 200)
-        setTimeout(triggerRelayout, 500)
-      } catch (err) {
-        console.error('카카오 지도 초기화 오류:', err)
       }
-    }
 
-    initMap()
+      requestAnimationFrame(triggerRelayout)
+      timerId = setTimeout(triggerRelayout, 100)
+      setTimeout(triggerRelayout, 300)
+    } catch (err) {
+      console.error('카카오 지도 초기화 오류:', err)
+    }
 
     return () => {
       if (timerId) clearTimeout(timerId)
+      mapInstance.current = null
     }
-  }, [kakao, activeCoord.lat, activeCoord.lng])
+  }, [kakao])
 
   // ResizeObserver로 창 크기 또는 영역 변동 시 relayout 자동 실행
   useEffect(() => {
