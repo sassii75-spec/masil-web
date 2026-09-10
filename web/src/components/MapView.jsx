@@ -64,15 +64,17 @@ export default function MapView({
     if (!kakao || !mapRef.current || mapInstance.current) return
 
     let timerId = null
+    let retries = 0
 
     const initMap = () => {
       if (!mapRef.current || mapInstance.current) return
 
-      const width = mapRef.current.offsetWidth
-      const height = mapRef.current.offsetHeight
+      const width = mapRef.current.offsetWidth || mapRef.current.clientWidth
+      const height = mapRef.current.offsetHeight || mapRef.current.clientHeight
 
-      // 컨테이너 레이아웃 계산 전(0x0)이면 재시도
-      if (width === 0 || height === 0) {
+      // 컨테이너 레이아웃 미계산(0x0)시 최대 5회(250ms) 재시도 후 진행
+      if ((width === 0 || height === 0) && retries < 5) {
+        retries++
         timerId = setTimeout(initMap, 50)
         return
       }
@@ -95,9 +97,9 @@ export default function MapView({
         }
 
         requestAnimationFrame(triggerRelayout)
-        setTimeout(triggerRelayout, 100)
-        setTimeout(triggerRelayout, 300)
-        setTimeout(triggerRelayout, 600)
+        setTimeout(triggerRelayout, 50)
+        setTimeout(triggerRelayout, 200)
+        setTimeout(triggerRelayout, 500)
       } catch (err) {
         console.error('카카오 지도 초기화 오류:', err)
       }
