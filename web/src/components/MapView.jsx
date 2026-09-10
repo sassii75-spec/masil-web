@@ -59,9 +59,9 @@ export default function MapView({
 
   const activeCoord = userLocation?.coord || DEFAULT_CENTER
 
-  // Kakao Map 객체 초기화 (마운트 시 생성, 언마운트 시 cleanup)
+  // Kakao Map 객체 초기화 (마운트 당 단 1회 실행, 언마운트 시 cleanup)
   useEffect(() => {
-    if (!kakao || !mapRef.current) return
+    if (!kakao || !mapRef.current || mapInstance.current) return
 
     let timerId = null
 
