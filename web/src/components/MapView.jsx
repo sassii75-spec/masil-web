@@ -226,6 +226,11 @@ export default function MapView({
         const bounds = new kakao.maps.LatLngBounds()
         coursePath.forEach((pt) => bounds.extend(pt))
         mapInstance.current.setBounds(bounds)
+
+        // 레벨 1~3 지나친 근접 줌인으로 인한 화면 빈칸 표출 방지 (최소 레벨 4 보장)
+        if (mapInstance.current.getLevel() < 4) {
+          mapInstance.current.setLevel(4)
+        }
       }
     }
   }, [kakao, places, selectedId, selectedCourse, activeCoord, onSelectPlace, onOpenDetail, userLocation])
