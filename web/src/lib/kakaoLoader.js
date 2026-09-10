@@ -5,7 +5,7 @@
 let loadingPromise = null
 
 export function loadKakaoMaps() {
-  if (window.kakao && window.kakao.maps && window.kakao.maps.LatLng) {
+  if (window.kakao && window.kakao.maps && typeof window.kakao.maps.LatLng === 'function') {
     return Promise.resolve(window.kakao)
   }
   if (loadingPromise) return loadingPromise
@@ -13,29 +13,30 @@ export function loadKakaoMaps() {
   const appKey = import.meta.env.VITE_KAKAO_JS_KEY || '9c8f5fbad231c8e09fc24e451dff1f5e'
 
   loadingPromise = new Promise((resolve, reject) => {
-    const tryResolve = () => {
+    const handleLoad = () => {
       if (window.kakao && window.kakao.maps) {
-        if (typeof window.kakao.maps.load === 'function') {
-          window.kakao.maps.load(() => resolve(window.kakao))
-        } else {
-          resolve(window.kakao)
-        }
+        window.kakao.maps.load(() => resolve(window.kakao))
       } else {
-        reject(new Error('카카오맵 SDK 초기화 실패'))
+        reject(new Error('카카오맵 SDK 로드 실패'))
       }
     }
 
     if (window.kakao && window.kakao.maps) {
-      tryResolve()
+      handleLoad()
       return
     }
 
-    const script = document.createElement('script')
-    script.src = `https://dapi.kakao.com/v2/maps/sdk.js?appkey=${appKey}&autoload=false&libraries=services`
-    script.async = true
-    script.onload = tryResolve
+    let script = document.getElementById('kakao-map-sdk')
+    if (!script) {
+      script = document.createElement('script')
+      script.id = 'kakao-map-sdk'
+      script.src = `https://dapi.kakao.com/v2/maps/sdk.js?appkey=${appKey}&autoload=false&libraries=services`
+      script.async = true
+      document.head.appendChild(script)
+    }
+
+    script.onload = handleLoad
     script.onerror = () => reject(new Error('카카오맵 SDK 스크립트 로드 실패'))
-    document.head.appendChild(script)
   })
 
   return loadingPromise
