@@ -61,18 +61,22 @@ export default function MapView({
 
   useEffect(() => {
     if (!kakao || !mapRef.current || mapInstance.current) return
-    mapInstance.current = new kakao.maps.Map(mapRef.current, {
-      center: new kakao.maps.LatLng(activeCoord.lat, activeCoord.lng),
-      level: 5,
-    })
-    infoWindowRef.current = new kakao.maps.InfoWindow({ removable: true })
-    if (mapInstance.current) {
-      setTimeout(() => {
-        if (mapInstance.current) {
-          mapInstance.current.relayout()
-          mapInstance.current.setCenter(new kakao.maps.LatLng(activeCoord.lat, activeCoord.lng))
-        }
-      }, 100)
+    try {
+      mapInstance.current = new kakao.maps.Map(mapRef.current, {
+        center: new kakao.maps.LatLng(activeCoord.lat, activeCoord.lng),
+        level: 5,
+      })
+      infoWindowRef.current = new kakao.maps.InfoWindow({ removable: true })
+      if (mapInstance.current) {
+        setTimeout(() => {
+          if (mapInstance.current) {
+            mapInstance.current.relayout()
+            mapInstance.current.setCenter(new kakao.maps.LatLng(activeCoord.lat, activeCoord.lng))
+          }
+        }, 100)
+      }
+    } catch (err) {
+      console.error('카카오 지도 초기화 오류:', err)
     }
   }, [kakao, activeCoord.lat, activeCoord.lng])
 
