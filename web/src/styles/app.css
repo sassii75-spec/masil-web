@@ -601,12 +601,6 @@ h1, h2, h3, h4 {
   background: #F5F2EC;
 }
 
-/* 카카오맵 SDK가 주입하는 내부 root div 크기를 컨테이너 100%에 강제 맞춤 */
-.map-view-box > div {
-  width: 100% !important;
-  height: 100% !important;
-}
-
 /* ---------- Modal Overlay & Containers ---------- */
 .modal-overlay {
   position: fixed;
