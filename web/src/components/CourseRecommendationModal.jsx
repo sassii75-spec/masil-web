@@ -96,6 +96,34 @@ export default function CourseRecommendationModal({ courses, onConfirmCourse, on
               return (
                 <div key={place.id} className="stop-card-wrapper" style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                   <div className={`stop-card ${cardColorClass}`} style={{ flex: 1, borderTop: '6px solid #B85B24' }}>
+                    {/* Place Photo Thumbnail */}
+                    <div className="stop-card-thumb" style={{ height: 110, borderRadius: 8, overflow: 'hidden', marginBottom: 10, background: cat.bg, position: 'relative' }}>
+                      {place.image_url ? (
+                        <img
+                          src={place.image_url}
+                          alt={place.name}
+                          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                          onError={(e) => {
+                            e.target.style.display = 'none'
+                            if (e.target.nextSibling) e.target.nextSibling.style.display = 'flex'
+                          }}
+                        />
+                      ) : null}
+                      <div
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          display: place.image_url ? 'none' : 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          fontSize: 32,
+                          color: cat.ink,
+                        }}
+                      >
+                        {Icon ? <Icon className="icon" /> : '🌿'}
+                      </div>
+                    </div>
+
                     <div className="stop-card-head" style={{ marginBottom: 10 }}>
                       <div className="icon-circle" style={{ fontSize: 24, marginBottom: 4 }}>
                         {Icon ? <Icon className="icon" /> : '📍'}
