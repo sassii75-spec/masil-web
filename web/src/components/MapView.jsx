@@ -66,6 +66,14 @@ export default function MapView({
       level: 5,
     })
     infoWindowRef.current = new kakao.maps.InfoWindow({ removable: true })
+    if (mapInstance.current) {
+      setTimeout(() => {
+        if (mapInstance.current) {
+          mapInstance.current.relayout()
+          mapInstance.current.setCenter(new kakao.maps.LatLng(activeCoord.lat, activeCoord.lng))
+        }
+      }, 100)
+    }
   }, [kakao, activeCoord.lat, activeCoord.lng])
 
   const handleRecenter = () => {
@@ -77,6 +85,8 @@ export default function MapView({
 
   useEffect(() => {
     if (!kakao || !mapInstance.current) return
+
+    mapInstance.current.relayout()
 
     overlaysRef.current.forEach((o) => o.setMap(null))
     overlaysRef.current = []
