@@ -85,70 +85,92 @@ export default function CourseRecommendationModal({ courses, onConfirmCourse, on
 
         {/* 3-Stop Cards Flow */}
         <div className="course-modal-body">
-          <div className="three-stop-cards-row">
+          <div className="three-stop-cards-row" style={{ display: 'flex', alignItems: 'stretch', gap: 16, margin: '20px 0' }}>
             {currentCourse.steps.map((step, sIdx) => {
               const place = step.place
-              const cat = CATEGORY_MAP[place.category] || CATEGORY_MAP['도보마실']
               const Icon = CATEGORY_ICONS[place.category]
-              const cardColorClass = sIdx === 0 ? 'card-orange' : sIdx === 1 ? 'card-orange' : 'card-blue'
+              const cardColorClass = sIdx === 0 ? 'card-blue' : sIdx === 1 ? 'card-green' : 'card-orange'
               const isLast = sIdx === currentCourse.steps.length - 1
 
+              const bgMap = {
+                'card-blue': { bg: '#EBF1F7', border: '#C8D8E6', ink: '#1F384C' },
+                'card-green': { bg: '#F2F4EE', border: '#CAD9CC', ink: '#27402B' },
+                'card-orange': { bg: '#FDF2E9', border: '#EAC8AB', ink: '#8A4015' },
+              }
+              const styleTheme = bgMap[cardColorClass]
+
               return (
-                <div key={place.id} className="stop-card-wrapper" style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                  <div className={`stop-card ${cardColorClass}`} style={{ flex: 1, borderTop: '6px solid #B85B24' }}>
-                    {/* Place Photo Thumbnail */}
-                    <div className="stop-card-thumb" style={{ height: 110, borderRadius: 8, overflow: 'hidden', marginBottom: 10, background: cat.bg, position: 'relative' }}>
-                      {place.image_url ? (
-                        <img
-                          src={place.image_url}
-                          alt={place.name}
-                          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                          onError={(e) => {
-                            e.target.style.display = 'none'
-                            if (e.target.nextSibling) e.target.nextSibling.style.display = 'flex'
-                          }}
-                        />
-                      ) : null}
+                <div key={place.id} className="stop-card-wrapper" style={{ flex: 1, display: 'flex', alignItems: 'center', gap: 12 }}>
+                  <div
+                    className={`stop-card ${cardColorClass}`}
+                    style={{
+                      flex: 1,
+                      background: styleTheme.bg,
+                      border: `1.5px solid ${styleTheme.border}`,
+                      borderRadius: 20,
+                      padding: '24px 20px',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'space-between',
+                      minHeight: 250,
+                      boxShadow: '0 4px 16px rgba(0,0,0,0.03)',
+                    }}
+                  >
+                    <div className="stop-card-head" style={{ textAlign: 'center', marginBottom: 12 }}>
                       <div
+                        className="icon-circle"
                         style={{
-                          width: '100%',
-                          height: '100%',
-                          display: place.image_url ? 'none' : 'flex',
+                          width: 44,
+                          height: 44,
+                          borderRadius: '50%',
+                          background: '#FFFFFF',
+                          display: 'inline-flex',
                           alignItems: 'center',
                           justifyContent: 'center',
-                          fontSize: 32,
-                          color: cat.ink,
+                          marginBottom: 10,
+                          fontSize: 22,
+                          boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
+                          color: styleTheme.ink,
                         }}
                       >
-                        {Icon ? <Icon className="icon" /> : '🌿'}
+                        {Icon ? <Icon className="icon" style={{ width: 22, height: 22 }} /> : '📍'}
                       </div>
-                    </div>
-
-                    <div className="stop-card-head" style={{ marginBottom: 10 }}>
-                      <div className="icon-circle" style={{ fontSize: 24, marginBottom: 4 }}>
-                        {Icon ? <Icon className="icon" /> : '📍'}
-                      </div>
-                      <h4 className="stop-title" style={{ fontSize: 18, color: '#1C1917' }}>
+                      <h4 className="stop-title" style={{ fontSize: 18, fontWeight: 800, color: '#1C1917', margin: '0 0 6px' }}>
                         Stop {sIdx + 1}: {place.name}
                       </h4>
-                      <div className="stop-duration" style={{ fontSize: 14, color: '#78716C' }}>
-                        ⏰ ({place.duration_min || 60}분 체류)
+                      <div className="stop-duration" style={{ fontSize: 13.5, fontWeight: 700, color: '#57534E' }}>
+                        ⏰ ({place.duration_min || 60}분 {sIdx === 1 ? '식사/휴식' : '체류'})
                       </div>
                     </div>
 
                     {place.oasis_pass_benefit && (
-                      <div className="stop-benefit-badge" style={{ background: '#FDF5EC', border: '1px solid #EAC8AB', color: '#944B15', padding: '6px 12px', borderRadius: 8, fontSize: 13, fontWeight: 700, marginBottom: 10 }}>
-                        <IconGift className="icon" /> 혜택: {place.oasis_pass_benefit}
+                      <div
+                        className="stop-benefit-badge"
+                        style={{
+                          background: '#FEF08A',
+                          color: '#854D0E',
+                          padding: '6px 14px',
+                          borderRadius: 999,
+                          fontSize: 13,
+                          fontWeight: 800,
+                          margin: '10px auto',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: 6,
+                          textAlign: 'center',
+                        }}
+                      >
+                        <IconGift className="icon" style={{ width: 14, height: 14 }} /> 마실 혜택: {place.oasis_pass_benefit}
                       </div>
                     )}
 
-                    <p className="stop-desc" style={{ fontSize: 14.5, color: '#44403C', lineHeight: 1.5 }}>
+                    <p className="stop-desc" style={{ fontSize: 14, color: '#44403C', lineHeight: 1.5, margin: '8px 0 0', textAlign: 'center' }}>
                       {place.description || `${place.category} 추천 장소입니다.`}
                     </p>
                   </div>
 
                   {!isLast && (
-                    <div className="stop-arrow" style={{ fontSize: 20, color: '#B85B24', fontWeight: 800 }}>
+                    <div className="stop-arrow" style={{ fontSize: 24, color: '#B85B24', fontWeight: 900 }}>
                       ➔
                     </div>
                   )}
