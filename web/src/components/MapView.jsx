@@ -61,7 +61,7 @@ export default function MapView({
 
   // Kakao Map 객체 초기화 (마운트 당 단 1회 실행, 언마운트 시 cleanup)
   useEffect(() => {
-    if (!kakao || !mapRef.current || mapInstance.current) return
+    if (!kakao || !kakao.maps || !kakao.maps.LatLng || !mapRef.current || mapInstance.current) return
 
     let timerId = null
 
@@ -110,14 +110,14 @@ export default function MapView({
   }, [kakao])
 
   const handleRecenter = () => {
-    if (!mapInstance.current || !kakao) return
+    if (!mapInstance.current || !kakao || !kakao.maps || !kakao.maps.LatLng) return
     const latLng = new kakao.maps.LatLng(activeCoord.lat, activeCoord.lng)
     mapInstance.current.setCenter(latLng)
     mapInstance.current.setLevel(5)
   }
 
   useEffect(() => {
-    if (!kakao || !mapInstance.current) return
+    if (!kakao || !kakao.maps || !kakao.maps.LatLng || !mapInstance.current) return
 
     mapInstance.current.relayout()
 

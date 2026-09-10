@@ -5,28 +5,36 @@
 let loadingPromise = null
 
 export function loadKakaoMaps() {
+  if (window.kakao && window.kakao.maps && window.kakao.maps.LatLng) {
+    return Promise.resolve(window.kakao)
+  }
   if (loadingPromise) return loadingPromise
 
+  const appKey = import.meta.env.VITE_KAKAO_JS_KEY || '9c8f5fbad231c8e09fc24e451dff1f5e'
+
   loadingPromise = new Promise((resolve, reject) => {
-    const initSdk = () => {
+    const tryResolve = () => {
       if (window.kakao && window.kakao.maps) {
-        window.kakao.maps.load(() => resolve(window.kakao))
+        if (typeof window.kakao.maps.load === 'function') {
+          window.kakao.maps.load(() => resolve(window.kakao))
+        } else {
+          resolve(window.kakao)
+        }
       } else {
         reject(new Error('카카오맵 SDK 초기화 실패'))
       }
     }
 
     if (window.kakao && window.kakao.maps) {
-      initSdk()
+      tryResolve()
       return
     }
 
-    const appKey = import.meta.env.VITE_KAKAO_JS_KEY || '9c8f5fbad231c8e09fc24e451dff1f5e'
     const script = document.createElement('script')
     script.src = `https://dapi.kakao.com/v2/maps/sdk.js?appkey=${appKey}&autoload=false&libraries=services`
     script.async = true
-    script.onload = initSdk
-    script.onerror = () => reject(new Error('카카오맵 SDK 스크립트를 불러오지 못했습니다.'))
+    script.onload = tryResolve
+    script.onerror = () => reject(new Error('카카오맵 SDK 스크립트 로드 실패'))
     document.head.appendChild(script)
   })
 
