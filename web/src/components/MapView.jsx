@@ -59,26 +59,69 @@ export default function MapView({
 
   const activeCoord = userLocation?.coord || DEFAULT_CENTER
 
+  // Kakao Map 객체 초기화 (컨테이너 크기 확정 후 생성)
   useEffect(() => {
     if (!kakao || !mapRef.current || mapInstance.current) return
-    try {
-      mapInstance.current = new kakao.maps.Map(mapRef.current, {
-        center: new kakao.maps.LatLng(activeCoord.lat, activeCoord.lng),
-        level: 5,
-      })
-      infoWindowRef.current = new kakao.maps.InfoWindow({ removable: true })
-      if (mapInstance.current) {
-        setTimeout(() => {
+
+    let timerId = null
+
+    const initMap = () => {
+      if (!mapRef.current || mapInstance.current) return
+
+      const width = mapRef.current.offsetWidth
+      const height = mapRef.current.offsetHeight
+
+      // 컨테이너 레이아웃 계산 전(0x0)이면 재시도
+      if (width === 0 || height === 0) {
+        timerId = setTimeout(initMap, 50)
+        return
+      }
+
+      try {
+        const centerLatLng = new kakao.maps.LatLng(activeCoord.lat, activeCoord.lng)
+        mapInstance.current = new kakao.maps.Map(mapRef.current, {
+          center: centerLatLng,
+          level: 5,
+        })
+        infoWindowRef.current = new kakao.maps.InfoWindow({ removable: true })
+
+        // 초기 타일 로드 보장용 relayout
+        const triggerRelayout = () => {
           if (mapInstance.current) {
             mapInstance.current.relayout()
-            mapInstance.current.setCenter(new kakao.maps.LatLng(activeCoord.lat, activeCoord.lng))
+            mapInstance.current.setCenter(centerLatLng)
           }
-        }, 100)
+        }
+
+        setTimeout(triggerRelayout, 50)
+        setTimeout(triggerRelayout, 200)
+        setTimeout(triggerRelayout, 500)
+      } catch (err) {
+        console.error('카카오 지도 초기화 오류:', err)
       }
-    } catch (err) {
-      console.error('카카오 지도 초기화 오류:', err)
+    }
+
+    initMap()
+
+    return () => {
+      if (timerId) clearTimeout(timerId)
     }
   }, [kakao, activeCoord.lat, activeCoord.lng])
+
+  // ResizeObserver로 창 크기 또는 영역 변동 시 relayout 자동 실행
+  useEffect(() => {
+    if (!mapRef.current) return
+
+    const observer = new ResizeObserver(() => {
+      if (mapInstance.current) {
+        mapInstance.current.relayout()
+      }
+    })
+
+    observer.observe(mapRef.current)
+
+    return () => observer.disconnect()
+  }, [])
 
   const handleRecenter = () => {
     if (!mapInstance.current || !kakao) return
