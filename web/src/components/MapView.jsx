@@ -79,10 +79,11 @@ export default function MapView({
 
       try {
         const centerLatLng = new kakao.maps.LatLng(activeCoord.lat, activeCoord.lng)
-        mapInstance.current = new kakao.maps.Map(mapRef.current, {
+        const instance = new kakao.maps.Map(mapRef.current, {
           center: centerLatLng,
           level: 5,
         })
+        mapInstance.current = instance
         infoWindowRef.current = new kakao.maps.InfoWindow({ removable: true })
 
         // 초기 타일 로드 보장용 relayout
@@ -93,9 +94,10 @@ export default function MapView({
           }
         }
 
-        setTimeout(triggerRelayout, 50)
-        setTimeout(triggerRelayout, 200)
-        setTimeout(triggerRelayout, 500)
+        requestAnimationFrame(triggerRelayout)
+        setTimeout(triggerRelayout, 100)
+        setTimeout(triggerRelayout, 300)
+        setTimeout(triggerRelayout, 600)
       } catch (err) {
         console.error('카카오 지도 초기화 오류:', err)
       }
@@ -113,7 +115,7 @@ export default function MapView({
     if (!mapRef.current) return
 
     const observer = new ResizeObserver(() => {
-      if (mapInstance.current) {
+      if (mapInstance.current && kakao) {
         mapInstance.current.relayout()
       }
     })
@@ -121,7 +123,7 @@ export default function MapView({
     observer.observe(mapRef.current)
 
     return () => observer.disconnect()
-  }, [])
+  }, [kakao])
 
   const handleRecenter = () => {
     if (!mapInstance.current || !kakao) return

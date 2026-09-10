@@ -584,17 +584,27 @@ h1, h2, h3, h4 {
   position: relative;
   width: 100%;
   height: 100%;
-  min-height: 500px;
+  min-width: 0;
+  min-height: 0;
   display: flex;
   flex-direction: column;
 }
 
 .map-view-box {
   width: 100%;
-  flex: 1;
   height: 100%;
-  min-height: 500px;
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  position: relative;
+  overflow: hidden;
   background: #F5F2EC;
+}
+
+/* 카카오맵 SDK가 주입하는 내부 root div 크기를 컨테이너 100%에 강제 맞춤 */
+.map-view-box > div {
+  width: 100% !important;
+  height: 100% !important;
 }
 
 /* ---------- Modal Overlay & Containers ---------- */
